@@ -305,8 +305,6 @@ class NPT(MolecularDynamics):
         # h must be equal to self.atoms.GetUnitCell()
         #
         # print "Making a timestep"
-        if self.wrap:
-            self.atoms.wrap(eps=0.)
         dt = self.dt
         h_future = self.h_past + 2 * dt * np.dot(self.h, self.eta)
         if self.pfactor_given is None:
