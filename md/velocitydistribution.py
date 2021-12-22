@@ -191,7 +191,7 @@ def phonon_harmonics(
     force_constants,
     masses,
     temp=None,
-    eigen_set=None
+    eigen_set=None,
     *,
     temperature_K=None,
     rng=np.random.rand,
