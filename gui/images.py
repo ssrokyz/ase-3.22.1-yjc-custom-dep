@@ -352,7 +352,7 @@ class Images:
 
         # Namespace for eval:
         ns = {'E': E,
-              'd': d, 'a': a, 'dih': dih, , 'np':np}
+              'd': d, 'a': a, 'dih': dih, 'np':np}
 
         data = []
         for i in range(nimages):
