@@ -206,7 +206,7 @@ def lammps_data_to_ase_atoms(
                                            forces=forces)
         out_atoms.calc = calculator
     if pe is not None:
-        out_atoms._calc.results['energies'] = pe
+        out_atoms._calc.results['energies'] = np.array(pe, dtype=float)
 
     # process the extra columns of fixes, variables and computes
     #    that can be dumped, add as additional arrays to atoms object
