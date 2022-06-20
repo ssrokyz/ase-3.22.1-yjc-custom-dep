@@ -354,10 +354,10 @@ def read_lammps_dump_text(fileobj, index=-1, **kwargs):
     # Now every slice elements are positive (slice_list[1] can be inf).
 
     # READ
-    max_img_len = (slice_list[1] - slice_list[0]) //slice_list[2]
+    max_img_len = (slice_list[1] -1 -slice_list[0]) //slice_list[2] +1
     i=0
     while True:
-        if i >= slice_list[0] and (i - slice_list[0]) % slice_list[2] == 0:
+        if i >= slice_list[0] and (i -slice_list[0]) % slice_list[2] == 0:
             # Get lines.
             if lines_tot is None:
                 lines = []
