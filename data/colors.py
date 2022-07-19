@@ -5,7 +5,7 @@ import numpy as np
 # Jmol colors.  See: http://jmol.sourceforge.net/jscolors/#color_U
 jmol_colors = np.array([
 # (1.000,0.000,0.000) ,# None
-(0.500,0.500,0.500) ,# None
+(0.800,0.800,0.800) ,# None
 (1.000,1.000,1.000), # H
 (0.851,1.000,1.000), # He
 (0.800,0.502,1.000), # Li
