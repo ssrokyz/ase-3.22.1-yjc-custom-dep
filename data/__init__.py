@@ -442,7 +442,8 @@ atomic_masses_common = np.array([
 #  Beatriz Cordero, Verónica Gómez, Ana E. Platero-Prats, Marc Revés,
 #  Jorge Echeverría, Eduard Cremades, Flavia Barragán and Santiago Alvarez,
 #  Dalton Trans., 2008, 2832-2838 DOI:10.1039/B801115J
-missing = 0.2
+missing = 0.8
+# missing = 0.2
 covalent_radii = np.array([
     missing,  # X
     0.31,  # H
