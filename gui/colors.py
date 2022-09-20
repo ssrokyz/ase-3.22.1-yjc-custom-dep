@@ -18,7 +18,7 @@ class ColorWindow:
         self.gui = gui
         self.win.add(ui.Label(_('Choose how the atoms are colored:')))
         values = ['jmol', 'tag', 'force', 'velocity',
-                  'initial charge', 'magmom', 'neighbors', 'energies']
+                  'initial charge', 'magmom', 'neighbors', 'energies', 'vdos', 'vdos_l', 'vdos_t']
         labels = [_('By atomic number, default "jmol" colors'),
                   _('By tag'),
                   _('By force'),
@@ -26,7 +26,10 @@ class ColorWindow:
                   _('By initial charge'),
                   _('By magnetic moment'),
                   _('By number of neighbors'),
-                  _('By potential energies'), ]
+                  _('By potential energies'),
+                  _('By atomic VDOS'),
+                  _('By atomic longitudinal VDOS'),
+                  _('By atomic transverse VDOS'),]
 
         haveit = ['numbers', 'positions', 'forces', 'momenta',
                   'initial_charges', 'initial_magmoms']
@@ -68,12 +71,16 @@ class ColorWindow:
         # and other images not.  Same goes for below quantities
         F = images.get_forces(atoms)
         energies = images.get_potential_energies(atoms)
+        vdos, vdos_l, vdos_t = images.get_vdos(atoms)
         radio['force'].active = F is not None
         radio['velocity'].active = atoms.has('momenta')
         radio['initial charge'].active = atoms.has('initial_charges')
         radio['magmom'].active = get_magmoms(atoms).any()
         radio['neighbors'].active = True
         radio['energies'].active = energies is not None
+        radio['vdos'].active = vdos is not None
+        radio['vdos_l'].active = vdos_l is not None
+        radio['vdos_t'].active = vdos_t is not None
 
     def toggle(self, value):
         self.gui.colormode = value

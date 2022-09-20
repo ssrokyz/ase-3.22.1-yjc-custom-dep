@@ -363,6 +363,12 @@ class View:
             return f * self.images.get_dynamic(self.atoms)
         elif self.colormode == 'energies':
             return self.atoms.get_potential_energies()
+        elif self.colormode == 'vdos':
+            return self.atoms.calc.results['vdos']
+        elif self.colormode == 'vdos_l':
+            return self.atoms.calc.results['vdos_l']
+        elif self.colormode == 'vdos_t':
+            return self.atoms.calc.results['vdos_t']
         elif self.colormode == 'velocity':
             return (self.atoms.get_velocities()**2).sum(1)**0.5
         elif self.colormode == 'initial charge':

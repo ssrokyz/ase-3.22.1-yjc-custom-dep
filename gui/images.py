@@ -78,6 +78,16 @@ class Images:
         else:
             return energies
 
+    def get_vdos(self, atoms):
+        try:
+            vdos = atoms.calc.results['vdos']
+            vdos_l = atoms.calc.results['vdos_l']
+            vdos_t = atoms.calc.results['vdos_t']
+        except:
+            return None, None, None
+        else:
+            return vdos, vdos_l, vdos_t
+
     def initialize(self, images, filenames=None):
         nimages = len(images)
         if filenames is None:
