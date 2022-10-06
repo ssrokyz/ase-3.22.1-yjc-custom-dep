@@ -88,6 +88,14 @@ class Images:
         else:
             return vdos, vdos_l, vdos_t
 
+    def get_aam(self, atoms):
+        try:
+            aam = np.linalg.norm(atoms.calc.results['aam'], axis=-1)
+        except:
+            return None
+        else:
+            return aam
+
     def initialize(self, images, filenames=None):
         nimages = len(images)
         if filenames is None:

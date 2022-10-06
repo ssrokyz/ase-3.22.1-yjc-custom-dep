@@ -369,6 +369,8 @@ class View:
             return self.atoms.calc.results['vdos_l']
         elif self.colormode == 'vdos_t':
             return self.atoms.calc.results['vdos_t']
+        elif self.colormode == 'aam':
+            return np.linalg.norm(self.atoms.calc.results['aam'], axis=-1)
         elif self.colormode == 'velocity':
             return (self.atoms.get_velocities()**2).sum(1)**0.5
         elif self.colormode == 'initial charge':

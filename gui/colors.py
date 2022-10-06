@@ -18,7 +18,7 @@ class ColorWindow:
         self.gui = gui
         self.win.add(ui.Label(_('Choose how the atoms are colored:')))
         values = ['jmol', 'tag', 'force', 'velocity',
-                  'initial charge', 'magmom', 'neighbors', 'energies', 'vdos', 'vdos_l', 'vdos_t']
+                  'initial charge', 'magmom', 'neighbors', 'energies', 'vdos', 'vdos_l', 'vdos_t', 'aam']
         labels = [_('By atomic number, default "jmol" colors'),
                   _('By tag'),
                   _('By force'),
@@ -29,7 +29,8 @@ class ColorWindow:
                   _('By potential energies'),
                   _('By atomic VDOS'),
                   _('By atomic longitudinal VDOS'),
-                  _('By atomic transverse VDOS'),]
+                  _('By atomic transverse VDOS'),
+                  _('By atomic angular momentum'),]
 
         haveit = ['numbers', 'positions', 'forces', 'momenta',
                   'initial_charges', 'initial_magmoms']
@@ -81,6 +82,7 @@ class ColorWindow:
         radio['vdos'].active = vdos is not None
         radio['vdos_l'].active = vdos_l is not None
         radio['vdos_t'].active = vdos_t is not None
+        radio['aam'].active = images.get_aam(atoms) is not None
 
     def toggle(self, value):
         self.gui.colormode = value
